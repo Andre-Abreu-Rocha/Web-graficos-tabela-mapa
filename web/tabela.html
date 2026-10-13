@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabela e grafico</title>
+
+    <!--dataTables-->
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css" rel="stylesheet">
+   
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <a href="index.html"><h3>Retorna ao menu</h3></a><br><br>
+
+    
+        <table id="tabela" class="display" style="width:100%">
+            <thead>
+                <tr><th><h3>Tabela de notas</h3></th></tr>
+                <tr>
+                    <th>Nome</th>
+                    <th>1º bim</th>
+                    <th>2º bim</th>
+                    <th>3º bim</th>
+                    <th>4º bim</th>
+                    <th>Media</th>
+                    <th>Conceito</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>João</td>
+                    <td>5,5</td>
+                    <td>8,0</td>
+                    <td>7,0</td>
+                    <td>9,0</td>
+                    <td>7,375</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Maria</td>
+                    <td>9,0</td>
+                    <td>8,5</td>
+                    <td>7,5</td>
+                    <td>10,0</td>
+                    <td>8,75</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Pedro</td>
+                    <td>6,0</td>
+                    <td>7,0</td>
+                    <td>5,5</td>
+                    <td>8,0</td>
+                    <td>6,625</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Ana</td>
+                    <td>8,5</td>
+                    <td>9,0</td>
+                    <td>7,5</td>
+                    <td>9,5</td>
+                    <td>8,625</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>   
+                    <td>Lucas</td>
+                    <td>4,0</td>
+                    <td>5,5</td>
+                    <td>6,0</td>
+                    <td>7,0</td>
+                    <td>5,625</td>
+                    <td>Reprovado</td>
+                </tr>
+                <tr>    
+                <td>Beatriz</td>
+                    <td>7,0</td>
+                    <td>8,0</td>
+                    <td>9,0</td>
+                    <td>10,0</td>
+                    <td>8,5</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Rafael</td>
+                    <td>6,5</td>
+                    <td>7,0</td>
+                    <td>8,0</td>
+                    <td>9,0</td>
+                    <td>7,625</td>
+                    <td>Aprovado</td>  
+                </tr>
+                <tr>
+                    <td>Camila</td>
+                    <td>9,5</td>
+                    <td>8,5</td>
+                    <td>7,0</td>
+                    <td>10,0</td>
+                    <td>8,75</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Gabriel</td>
+                    <td>5,0</td>
+                    <td>6,0</td>
+                    <td>7,0</td>
+                    <td>8,0</td>
+                    <td>6,5</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Larissa</td>
+                    <td>8,0</td>
+                    <td>9,0</td>
+                    <td>7,5</td>
+                    <td>10,0</td>
+                    <td>8,625</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Felipe</td>
+                    <td>6,0</td>
+                    <td>7,5</td>
+                    <td>8,0</td>
+                    <td>9,0</td>
+                    <td>7,625</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Juliana</td>
+                    <td>9,0</td>
+                    <td>8,5</td>
+                    <td>7,0</td>
+                    <td>10,0</td>
+                    <td>8,625</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Thiago</td>
+                    <td>5,5</td>
+                    <td>6,0</td>
+                    <td>7,0</td>
+                    <td>3,0</td>
+                    <td>5,35</td>
+                    <td>Reprovado</td>
+                </tr>
+                <tr>
+                    <td>Isabela</td>
+                    <td>8,5</td>
+                    <td>9,0</td>
+                    <td>7,5</td>
+                    <td>10,0</td>
+                    <td>8,625</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Vinicius</td>
+                    <td>6,0</td>
+                    <td>7,0</td>
+                    <td>8,0</td>
+                    <td>9,0</td>
+                    <td>7,5</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Larissa</td>
+                    <td>8,0</td>
+                    <td>9,0</td>
+                    <td>7,5</td>
+                    <td>10,0</td>
+                    <td>8,625</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Felipe</td>
+                    <td>6,0</td>
+                    <td>7,5</td>
+                    <td>8,0</td>
+                    <td>9,0</td>
+                    <td>7,625</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Juliana</td>
+                    <td>9,0</td>
+                    <td>8,5</td>
+                    <td>7,0</td>
+                    <td>10,0</td>
+                    <td>8,625</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Thiago</td>
+                    <td>5,5</td>
+                    <td>6,0</td>
+                    <td>7,0</td>
+                    <td>3,0</td>
+                    <td>5,35</td>
+                    <td>Reprovado</td>
+                </tr>
+                <tr>
+                    <td>Isabela</td>
+                    <td>8,5</td>
+                    <td>9,0</td>
+                    <td>7,5</td>
+                    <td>10,0</td>
+                    <td>8,625</td>
+                    <td>Aprovado</td>
+            </tbody>
+
+
+
+
+
+        </table>
+    </div>            
+
+   
+
+
+
+<!--dataTables-->
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+<script>
+$(document).ready(function() {
+$('#tabela').DataTable({ //id da tabela após o “#”
+
+});
+});
+</script>
+
+
+</body>
+</html>
