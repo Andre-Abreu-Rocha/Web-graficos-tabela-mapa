@@ -1,102 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa de Mauá</title>
-
-    <!--bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-    <!--Biblioteca do mapa Leaflet-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
- 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script></head>
-
-
-
-</head>
-
-<!-- css leaflet para utilizar em conjunto com open street map-->
-	  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-	
-		<!--css leaflet -->
-		
-		<style>
-		#map {
-            height: 500px;   /* altura do mapa */
-            width: 80%;      /* largura */
-            margin: auto;    /* centraliza */
-            border: 2px solid #ccc;
-            border-radius: 10px;
+    <title>Mapa de Mauá - SP</title>
+ 
+    <!-- CSS do Leaflet -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+ 
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+ 
+        h2 {
+            text-align: center;
+            padding: 10px;
+        }
+ 
+        #mapa {
+            height: 85vh;
+            width: 100%;
         }
     </style>
-		</style>
-
-
+</head>
 <body>
-    <a href="index.html">Retornar ao menu</a>
-
-    <body class="bg-light">
-	
-
-	
-
-		 <div class="row">
-		   <div class=col-md-1></div>
-		   <div class=col-md-10>
-				<div id="map"></div>
-		   </div>
-		   <div class=col-md-1></div>
-		</div>
-
-
-
-
-</div>   
-
-
-
-<!--script do plugin de mapas -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-<!-- plugin para exibir kml-->
-<script src="https://unpkg.com/leaflet-omnivore/leaflet-omnivore.min.js"></script>
-
-<script>
-    // Cria o mapa dentro da div "map"
-    var map = L.map('map').setView([-23.66, -46.46], 10); //latitude e longitude inicial do mapa e 10 é o zoom do mapa
-
-    // Adiciona o mapa base do OpenStreetMap 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap'
-    }).addTo(map);
-	
-	
-
-    // adicionando pontos no mapa formato json
-    var pessoas = [
-	 
-    
-        { nome: "João", lat: -23.66, lng: -46.46 },
-        { nome: "Maria", lat: -23.55, lng: -46.63 },
-        { nome: "Pedro", lat: -23.80, lng: -46.50 }
-    
-	]
-        ;
-
-    // Loop para plotar os pontos no mapa com base no vetor acima
-    pessoas.forEach(function(p) {
-        L.marker([p.lat, p.lng])
-            .addTo(map)
-            .bindPopup(p.nome);
-    });
-</script>
-
-
-
-
-
+ 
+    <h2>Mapa de Mauá - SP</h2>
+    <div id="mapa"></div>
+ 
+    <!-- JavaScript do Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+ 
+    <script>
+        // Criando o mapa e definindo o zoom inicial
+        const mapa = L.map('mapa').setView(
+            [-23.6677, -46.4613], 13
+        );
+ 
+        // Camada de mapa base
+        L.tileLayer(
+            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            {
+                attribution: '&copy; OpenStreetMap contributors'
+            }
+        ).addTo(mapa);
+ 
+        // Marcador da Etec Mauá
+        L.marker([-23.6656, -46.4619])
+            .addTo(mapa)
+            .bindPopup('<b>Etec Mauá</b>');
+ 
+        // Marcador da Fatec Mauá
+        L.marker([-23.6680, -46.4600])
+            .addTo(mapa)
+            .bindPopup('<b>Fatec Mauá</b>');
+ 
+        // Marcador da Prefeitura de Mauá
+        L.marker([-23.6685, -46.4615])
+            .addTo(mapa)
+            .bindPopup('<b>Prefeitura do Município de Mauá</b>');
+ 
+        // Camada de limites do município
+        const limitesMunicipio =
+            'https://geo.cati.sp.gov.br/server/rest/services/Hosted/IGC_Limites_municipais/FeatureServer/0/query?where=nome%3D%27Mau%C3%A1%27&outFields=nome&returnGeometry=true&outSR=4326&f=geojson';
+ 
+        fetch(limitesMunicipio)
+            .then(resposta => resposta.json())
+            .then(dados => {
+                L.geoJSON(dados, {
+                    style: {
+                        color: 'black',
+                        weight: 3,
+                        fillColor: '#ffcccb',
+                        fillOpacity: 0.15
+                    }
+                }).addTo(mapa);
+            })
+            .catch(erro => {
+                console.error(
+                    'Erro ao carregar os limites do município:',
+                    erro
+                );
+            });
+    </script>
+ 
 </body>
 </html>
